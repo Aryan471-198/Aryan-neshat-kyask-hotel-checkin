@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <time.h>
 
 // Global variables for guest information
 
@@ -121,10 +121,11 @@ void checkin() {
         }
         if (year>2007) {
             printf("children cant sign up plaese bring and adult.\n");
+            continue;
 
         }
         if (year<1925) {
-            printf("You cant be more tahn 100 years old that is not possible.\n");
+            printf("You cant be more than 100 years old that is not possible.\n");
             continue;
         }
         int d= (confirmOrQuit("Is this correct?"));
@@ -218,8 +219,11 @@ void checkin() {
 
 
     roomsAvailable[roomChoice - 1] = false;
-
+    int r;
+    srand(time(NULL));
+    r = rand() % 100;
     strcpy(bookingID, surName);
+    snprintf(bookingID, sizeof(bookingID), "%s%d", surName, r);
 
     printf("\nBooking Summary:\n");
     printf("Guest: %s %s\n", firstName, surName);
@@ -233,6 +237,7 @@ void checkin() {
 }
 
 void storeInfo() {
+
     guestStayLengths[guestCount] = stayLength;
     guestRoomChoices[guestCount] = roomChoice;
     strcpy(guestBoardTypes[guestCount], boardType);
