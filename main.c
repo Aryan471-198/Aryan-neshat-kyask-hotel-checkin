@@ -261,7 +261,7 @@ void findAndPrintByID() {
             printf("Booking ID: %s\n", guestBookingIDs[i]);
             printf("Room: %d\n", guestRoomChoices[i]);
             printf("Stay Length: %d nights\n", guestStayLengths[i]);
-            printf("number of guests: %d nights\n", guestnumber[i]);
+            printf("number of guests: %d \n", guestnumber[i]);
             printf("Board Type: %s\n", guestBoardTypes[i]);
             printf("Newspaper: %d\n", guestNewspapers[i]);
             printf("====================\n");
